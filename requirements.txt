@@ -1,0 +1,7 @@
+datasets>=2.19,<4
+transformers>=4.40
+sentencepiece
+torch
+sentence-transformers>=2.7
+rank_bm25
+numpy
