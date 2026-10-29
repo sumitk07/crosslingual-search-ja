@@ -51,6 +51,18 @@ MIRACL-ja dev questions (Japanese, with human relevance labels)
 - **Dense** search uses `intfloat/multilingual-e5-small` with the `query:` / `passage:` prefixes. It puts all languages in one vector space.
 - **Hybrid** merges the two ranked lists with reciprocal rank fusion (k = 60).
 
+## Repository layout
+
+```
+run.py                 main experiment: load, translate, search, score
+src/data.py            MIRACL-ja loading and the judged passage pool
+src/translate.py       NLLB-200 translation with a cache
+src/retrieval.py       BM25 (character bigrams), multilingual-E5, reciprocal rank fusion
+src/metrics.py         nDCG@10, Recall@20, Recall@100
+tests/test_offline.py  offline checks for the pieces above
+results/               summary of the first run and the figure
+```
+
 ## Run it
 
 Python 3.10+, about 6 GB of disk. No GPU needed.
@@ -65,7 +77,7 @@ python run.py --n-queries 100 --beams 2      # the run reported above (about 20 
 python run.py                                # 500 questions, beam 4
 ```
 
-Outputs go to `results/`: `summary.md`, `summary.csv`, `queries.tsv` (all questions and translations), `failures_en.tsv`, `failures_hi.tsv`, `translation_check.tsv` and `config.json`. Translations are cached, so a second run is much faster.
+Outputs go to `results/`: `summary.md`, `summary.csv`, `queries.tsv` (all questions and translations), `failures_en.tsv`, `failures_hi.tsv`, `translation_check.tsv` and `config.json`. Translations are cached, so a second run is much faster. This repository keeps only the summary of the first run; the per-question files will be added with the error analysis.
 
 If MIRACL fails to load, install `datasets<4`; newer versions dropped the loader it uses.
 

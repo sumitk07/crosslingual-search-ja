@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below."
+title: "crosslingual-search-ja: measuring cross-lingual search loss for English and Hindi questions over Japanese text"
+authors:
+  - family-names: Kumar
+    given-names: Sumit
+version: 0.1.0
+date-released: 2026-10-27
+license: MIT
+repository-code: "https://github.com/sumitk07/crosslingual-search-ja"
+keywords:
+  - cross-lingual information retrieval
+  - Japanese
+  - Hindi
+  - MIRACL
+  - multilingual-E5
+  - BM25
